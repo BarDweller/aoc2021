@@ -40,6 +40,7 @@ public class Main {
                                                                           total.y+element.y);});
     System.out.println(result + " " +(result.x*result.y));
     
+    //approach 1, map all deltas to part 2 deltas then reduce as per part1
     PartTwoDelta result2 = 
         StreamEx.of(values)
             .map(a -> Delta.fromString(a))
@@ -48,6 +49,20 @@ public class Main {
                                                                                           total.x+element.x, 
                                                                                           total.y+(total.aim*element.x));});
     System.out.println(result2 + " " +(result2.x*result2.y));
+    
+    //approach2, use the reduce variant that allows for Type change, but requires a combining function for the new Type.
+    //           since we're generating the new PartTwoDelta with the previous one already added, our combining function is 
+    //           just 'take the new total and use it'. 
+    PartTwoDelta result3 = 
+        StreamEx.of(values)
+            .map(a -> Delta.fromString(a))
+            .reduce(new PartTwoDelta(0,0,0), 
+                    (total, element) -> {return new PartTwoDelta(total.aim+element.y, 
+                                                                 total.x+element.x, 
+                                                                 total.y+(total.aim*element.x));},
+                    (total, othertotal) -> othertotal);
+    
+    System.out.println(result3 + " " +(result2.x*result2.y));
   }
 
 }
