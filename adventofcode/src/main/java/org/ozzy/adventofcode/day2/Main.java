@@ -62,7 +62,7 @@ public class Main {
                                                                  total.y+(total.aim*element.x));},
                     (total, othertotal) -> othertotal);
     
-    System.out.println(result3 + " " +(result2.x*result2.y));
+    System.out.println(result3 + " " +(result3.x*result3.y));
   }
 
 }
