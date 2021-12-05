@@ -16,10 +16,7 @@ public class Main {
   record PairCoord( Coord a, Coord b) {};
   
   private static void addToGrid(Map<Coord,Integer> grid, Coord c) {
-    if(grid.containsKey(c))
-      grid.put(c, grid.get(c)+1);
-    else
-      grid.put(c,  1);
+    grid.put(c,  grid.getOrDefault(c, 0)+1); 
   }
   
   private static void fillLine(Map<Coord,Integer> grid, PairCoord pc) {
