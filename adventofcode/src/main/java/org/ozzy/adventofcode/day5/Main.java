@@ -23,30 +23,14 @@ public class Main {
   }
   
   private static void fillLine(Map<Coord,Integer> grid, PairCoord pc) {
-    //straight lines.. 
-    if(pc.a.x==pc.b.x) {
-      //vertical line
-      int maxy = Integer.max(pc.a.y, pc.b.y);
-      int miny = Integer.min(pc.a.y, pc.b.y);
-      for(int a=miny; a<=maxy; a++) {
-        addToGrid(grid, new Coord(pc.a.x,a));
-      }
-    }else if(pc.a.y==pc.b.y) {
-      //horiz line.
-      int maxx = Integer.max(pc.a.x, pc.b.x);
-      int minx = Integer.min(pc.a.x, pc.b.x);
-      for(int a=minx; a<=maxx; a++) {
-        addToGrid(grid, new Coord(a,pc.a.y));
-      }
-    }else if(Math.abs(pc.a.x - pc.b.x) == Math.abs(pc.a.y - pc.b.y)) {
-      //diagonal line. (45' only!)
-      int xd= pc.a.x < pc.b.x ? 1 : -1;
-      int yd= pc.a.y < pc.b.y ? 1 : -1;
-      int count = Math.abs(pc.a.x - pc.b.x);
+      //updated after part2, just use a single generic fill line routine, instead of horiz/vert/diag
+      //handles any horiz/vert/diag line(only 45' as per problem)
+      int xd= pc.a.x == pc.b.x ? 0 : pc.a.x < pc.b.x ? 1 : -1;
+      int yd= pc.a.y == pc.b.y ? 0 : pc.a.y < pc.b.y ? 1 : -1;
+      int count = Integer.max(Math.abs(pc.a.x - pc.b.x), Math.abs(pc.a.y-pc.b.y));
       for(int x=pc.a.x,y=pc.a.y,c=0;c<=count;x+=xd,y+=yd,c++) {
         addToGrid(grid, new Coord(x,y));
       }
-    }
   }
 
   public static void main(String[] args) throws Exception {
