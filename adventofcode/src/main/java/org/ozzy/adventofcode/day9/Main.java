@@ -81,7 +81,7 @@ public class Main {
       if(!allKnownBasinCoords.contains(c)) { //skip done coords
         Set<Coord> basin = new HashSet<>();
         findBasin(c, basin);
-        allKnownBasinCoords.add(c);
+        allKnownBasinCoords.addAll(basin);
         basins.add(basin);
       }
     }
