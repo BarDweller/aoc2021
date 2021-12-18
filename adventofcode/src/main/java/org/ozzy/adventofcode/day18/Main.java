@@ -159,7 +159,7 @@ public class Main {
     
     List<Pair> allNumbers = StreamEx.ofLines(input).map(Pair::new).toList();
     int max = StreamEx.ofCombinations(allNumbers.size(), 2)
-                      .map( i -> Math.max(allNumbers.get(i[0]).add(allNumbers.get(i[1])).magnitude(),allNumbers.get(i[0]).add(allNumbers.get(i[1])).magnitude()) )
+                      .map( i -> Math.max(allNumbers.get(i[0]).add(allNumbers.get(i[1])).magnitude(),allNumbers.get(i[1]).add(allNumbers.get(i[0])).magnitude()) )
                       .max(Integer::compareTo)
                       .get();
     System.out.println(max);
