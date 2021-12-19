@@ -65,31 +65,31 @@ public class Main {
     }
     private static Coord mutate(Coord o, int variant) {
       return switch(variant) {
-        case 0 ->  new Coord(o.z,o.x,o.y);
-        case 1 ->  new Coord(-o.y,-o.x,-o.z);
-        case 2 ->  new Coord(-o.y,-o.z,o.x);
-        case 3 ->  new Coord(-o.y,o.z,-o.x);
-        case 4 ->  new Coord(o.x,o.y,o.z);
-        case 5 ->  new Coord(o.x,-o.y,-o.z);
-        case 6 ->  new Coord(o.x,-o.z,o.y);
-        case 7 ->  new Coord(o.x,o.z,-o.y);
-        case 8 ->  new Coord(-o.x,o.z,o.y);
-        case 9 ->  new Coord(-o.x,-o.z,-o.y);
-        case 10 -> new Coord(-o.x,-o.y,o.z);
-        case 11 -> new Coord(-o.x,o.y,-o.z);
-        case 12 -> new Coord(o.y,o.z,o.x);
-        case 13 -> new Coord(o.y,-o.z,-o.x);
-        case 14 -> new Coord(o.y,-o.x,o.z);
-        case 15 -> new Coord(o.y,o.x,-o.z);
-        case 16 -> new Coord(-o.y,o.x,o.z);
-        case 17 -> new Coord(o.z,-o.x,-o.y);
-        case 18 -> new Coord(o.z,-o.y,o.x);
-        case 19 -> new Coord(o.z,o.y,-o.x);
-        case 20 -> new Coord(-o.z,o.y,o.x);
-        case 21 -> new Coord(-o.z,-o.y,-o.x);
-        case 22 -> new Coord(-o.z,-o.x,o.y);
-        case 23 -> new Coord(-o.z,o.x,-o.y);
-        default -> throw new IllegalArgumentException("Unexpected value: " + variant);
+        case 0 -> new Coord(o.x,o.y,o.z);
+        case 1 -> new Coord(-o.y,o.x,o.z);
+        case 2 -> new Coord(-o.x,-o.y,o.z);
+        case 3 -> new Coord(o.y,-o.x,o.z);
+        case 4 -> new Coord(o.x,-o.y,-o.z);
+        case 5 -> new Coord(o.y,o.x,-o.z);
+        case 6 -> new Coord(-o.x,o.y,-o.z);
+        case 7 -> new Coord(-o.y,-o.x,-o.z);
+        case 8 -> new Coord(o.x,-o.z,o.y);
+        case 9 -> new Coord(o.z,o.x,o.y);
+        case 10 ->new Coord(-o.x,o.z,o.y);
+        case 11 ->new Coord(-o.z,-o.x,o.y);
+        case 12 ->new Coord(-o.y,-o.z,o.x);
+        case 13 ->new Coord(o.z,-o.y,o.x);
+        case 14 ->new Coord(o.y,o.z,o.x);
+        case 15 ->new Coord(-o.z,o.y,o.x);
+        case 16 ->new Coord(-o.x,-o.z,-o.y);
+        case 17 ->new Coord(o.z,-o.x,-o.y);
+        case 18 ->new Coord(o.x,o.z,-o.y);
+        case 19 ->new Coord(-o.z,o.x,-o.y);
+        case 20 ->new Coord(o.y,-o.z,-o.x);
+        case 21 ->new Coord(o.z,o.y,-o.x);
+        case 22 ->new Coord(-o.y,o.z,-o.x);
+        case 23 ->new Coord(-o.z,-o.y,-o.x);
+        default -> throw new IllegalStateException();
       };
     }
   }
