@@ -20,7 +20,8 @@ public class Main {
                       .parallel()
                       .flatMapKeyValue( (c,w) -> StreamEx.of(c)
                                                          .map(newcoord)
-                                                         .map(nc -> !w.equals(wanted)||map.containsKey(nc)?new AtCoord<Character>(c,w):new AtCoord<Character>(nc,w))
+                                                         .map(nc -> !w.equals(wanted)||map.containsKey(nc)?c:nc)
+                                                         .map(nc -> new AtCoord<Character>(nc,w))
                                       )
                       .toMap(c -> c.coord, c->c.obj);
   }
